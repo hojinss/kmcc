@@ -1,105 +1,117 @@
-
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>창체부 업무 지원 홈페이지</title>
-<style>
-body { font-family: 'Malgun Gothic', dotum, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-.container { max-width: 800px; margin: 0 auto; background-color: #fff; border: 1px solid #ccc; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 15px; margin-top: 0; text-align: center; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창체부 업무 지원 홈페이지</title>
+    <style>
+        /* [공통 스타일] PC 기준 */
+        body { font-family: 'Malgun Gothic', dotum, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background-color: #fff; border: 1px solid #ccc; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 15px; margin-top: 0; text-align: center; word-break: keep-all; }
 
+        /* 섹션 제목 스타일 */
+        h3 { color: #2980b9; margin-top: 40px; border-left: 5px solid #2980b9; padding-left: 10px; }
+        
+        p { line-height: 1.6; color: #555; word-break: keep-all; } /* word-break: 단어 단위 줄바꿈 */
+        
+        /* 링크 텍스트 스타일 */
+        .doc-link { color: #2980b9; text-decoration: underline; display: block; margin-bottom: 10px; font-weight: 500; font-size: 16px; word-break: break-all; }
+        .doc-link:hover { color: #1a5276; }
+        
+        /* 표 스타일 */
+        .my-table { width: 90%; border-collapse: collapse; font-family: sans-serif; font-size: 15px; border: 1px solid #ddd; margin: 0 auto; }
+        .my-table th { background-color: #f1f3f4; padding: 12px; border: 1px solid #ddd; text-align: center; width: 35%; font-weight: bold; color: #333; }
+        .my-table td { padding: 12px; border: 1px solid #ddd; text-align: center; vertical-align: middle; }
+        
+        /* 표 안의 이동 버튼 (파란색) */
+        .my-btn { display: inline-block; background-color: #1a73e8; color: white !important; padding: 6px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 13px; white-space: nowrap; }
+        .my-btn:hover { background-color: #1557b0; }
 
-    /* 섹션 제목 스타일 */
-    h3 { color: #2980b9; margin-top: 40px; border-left: 5px solid #2980b9; padding-left: 10px; }
-    
-    p { line-height: 1.6; color: #555; }
-    
-    /* 링크 텍스트 스타일 */
-    .doc-link { color: #2980b9; text-decoration: underline; display: block; margin-bottom: 10px; font-weight: 500; }
-    .doc-link:hover { color: #1a5276; }
-    
-    /* [표 스타일] margin: 0 auto; -> 표를 화면 가운데로 보냄 */
-    .my-table { width: 90%; border-collapse: collapse; font-family: sans-serif; font-size: 14px; border: 1px solid #ddd; margin: 0 auto; }
-    .my-table th { background-color: #f1f3f4; padding: 12px; border: 1px solid #ddd; text-align: center; width: 30%; font-weight: bold; color: #333; }
-    .my-table td { padding: 12px; border: 1px solid #ddd; text-align: center; vertical-align: middle; }
-    
-    /* 표 안의 이동 버튼 (파란색) */
-    .my-btn { display: inline-block; background-color: #1a73e8; color: white !important; padding: 6px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 13px; }
-    .my-btn:hover { background-color: #1557b0; }
+        /* 다운로드 버튼 스타일 */
+        .btn { display: inline-block; background-color: #27ae60; color: white; padding: 15px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; transition: background 0.3s; box-sizing: border-box; }
+        .btn:hover { background-color: #219150; }
 
-    /* [다운로드 버튼 스타일] */
-    .btn { display: inline-block; background-color: #27ae60; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; transition: background 0.3s; }
-    .btn:hover { background-color: #219150; }
+        /* 하단 푸터 및 알림창 */
+        .footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+        .alert { color: #c0392b; font-weight: bold; background-color: #fadbd8; padding: 10px; border-radius: 5px; display: inline-block; margin-top: 10px; font-size: 0.9em; word-break: keep-all;}
+        
+        /* 가운데 정렬용 클래스 */
+        .text-center { text-align: center; }
 
-    /* 하단 푸터 및 알림창 */
-    .footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
-    .alert { color: #c0392b; font-weight: bold; background-color: #fadbd8; padding: 10px; border-radius: 5px; display: inline-block; margin-top: 10px;}
-    
-    /* [중요] 가운데 정렬용 클래스 */
-    .text-center { text-align: center; }
-</style>
-
-
-
+        /* ========================================= */
+        /* ★ 모바일 최적화 (화면 폭 600px 이하일 때) ★ */
+        /* ========================================= */
+        @media screen and (max-width: 600px) {
+            body { padding: 10px; } /* 전체 여백 줄임 */
+            .container { padding: 20px 15px; } /* 박스 안쪽 여백 줄임 */
+            
+            h1 { font-size: 22px; } /* 제목 크기 약간 축소 */
+            h3 { font-size: 18px; margin-top: 30px; }
+            
+            /* 표 최적화 */
+            .my-table { width: 100%; font-size: 13px; } /* 표 꽉 차게, 글씨 작게 */
+            .my-table th, .my-table td { padding: 8px 4px; } /* 셀 안쪽 여백 줄임 */
+            
+            /* 다운로드 버튼 꽉 차게 */
+            .btn { width: 100%; display: block; text-align: center; font-size: 14px; }
+            
+            /* 창체일지 링크 글씨 조정 */
+            .doc-link { font-size: 14px; }
+        }
+    </style>
 </head>
 <body>
 
-
-<div class="container">
-    <h1>🏫 창의체험부</h1>
-    
-    <h3>1. 창체 일지</h3>
-    <div class="text-center">
-        <a href="https://docs.google.com/spreadsheets/d/1nIjISUHFomLyJBAGq2AVoOtgM7OI88KLUUl92H9Ljx8/edit?usp=sharing">📄 2026학년도 창체 일지_260303</a>
-    </div>
-    <br><br>
-
-    <h3>2. 학생부, 봉사활동 입력 주소</h3>
-    
-    <table class="my-table">
-        <thead>
-            <tr>
-                <th>구분</th>
-                <th>바로가기</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="font-weight:bold;">학생부<br>(자율, 진로, 개세특)</td>
-                <td>
-                    <a href="https://docs.google.com/spreadsheets/d/1QdIaF3XcIkSV8YJzSQ7fy3mDtIor_ZLKbwvIvohyubI/edit?usp=sharing" target="_blank" class="my-btn">이동 🔗</a>
-                </td>
-            </tr>
-            <tr>
-                <td style="font-weight:bold;">봉사활동</td>
-                <td>
-                    <a href="https://docs.google.com/spreadsheets/d/1xx_OssurPYei-pNRaXlBbVwsl7pvUPPbb8Fk9wcyyss/edit?usp=sharing" target="_blank" class="my-btn">이동 🔗</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="text-align: right; font-size: 0.9em; color: #888; margin-top: 10px; width: 90%; margin-left: auto; margin-right: auto;">* 2학기 파일 주소는 8월 중 이곳에 업데이트됩니다.</p>
-    <br><br>
-
-    <h3>3. 담임용 프로그램 다운로드</h3>
-    <div class="text-center">
-        <p> 학급 학생들의 학생부(자율, 진로, 개세특)와 봉사활동 기록을 불러오는 엑셀 파일입니다. </p>
+    <div class="container">
+        <h1>🏫 창의체험부</h1>
         
-        <a href="2026학년도 담임배포용_창의체험부_260216.xlsm" class="btn" download>📥 담임용 프로그램 다운로드 (Click)</a>
+        <h3>1. 창체 일지</h3>
+        <div class="text-center">
+            <a href="https://docs.google.com/spreadsheets/d/1nIjISUHFomLyJBAGq2AVoOtgM7OI88KLUUl92H9Ljx8/edit?usp=sharing" target="_blank" class="doc-link">📄 2026학년도 창체 일지_260303</a>
+        </div>
+        <br>
+
+        <h3>2. 학생부, 봉사활동 입력 주소</h3>
+        
+        <table class="my-table">
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>바로가기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight:bold;">학생부<br><span style="font-size:0.9em; font-weight:normal; color:#666;">(자율/진로/세특)</span></td>
+                    <td>
+                        <a href="https://docs.google.com/spreadsheets/d/1QdIaF3XcIkSV8YJzSQ7fy3mDtIor_ZLKbwvIvohyubI/edit?usp=sharing" target="_blank" class="my-btn">이동 🔗</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;">봉사활동</td>
+                    <td>
+                        <a href="https://docs.google.com/spreadsheets/d/1xx_OssurPYei-pNRaXlBbVwsl7pvUPPbb8Fk9wcyyss/edit?usp=sharing" target="_blank" class="my-btn">이동 🔗</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: right; font-size: 0.85em; color: #888; margin-top: 8px; width: 100%;">* 2학기 주소는 8월 중 업데이트됩니다.</p>
+        <br>
+
+        <h3>3. 담임용 프로그램 다운로드</h3>
+        <div class="text-center">
+            <p style="font-size: 0.95em;">학생부 및 봉사활동 기록을<br>불러오는 엑셀 파일입니다.</p>
+            
+            <a href="2026학년도 담임배포용_창의체험부_260216.xlsm" class="btn" download>📥 담임용 프로그램 다운로드 (Click)</a>
+            <br><br>
+            <div class="alert">※ 실행 시 상단의 [편집 사용] 및 [콘텐츠 사용] 버튼을 반드시 눌러주세요.</div>
+        </div>
+
+        <div class="footer">
+            © 2026 경문고등학교 창의체험부<br>관리자: 장호진 선생님
+        </div>
     </div>
-
-    <div class="footer">
-        © 2026 경문고등학교 창의체험부 | 관리자: 장호진 선생님
-    </div>
-</div>
-
-
 
 </body>
 </html>
-
-
-
