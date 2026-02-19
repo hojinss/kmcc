@@ -13,7 +13,7 @@
         /* 섹션 제목 스타일 */
         h3 { color: #2980b9; margin-top: 40px; border-left: 5px solid #2980b9; padding-left: 10px; }
         
-        p { line-height: 1.6; color: #555; word-break: keep-all; } /* word-break: 단어 단위 줄바꿈 */
+        p { line-height: 1.6; color: #555; word-break: keep-all; }
         
         /* 링크 텍스트 스타일 */
         .doc-link { color: #2980b9; text-decoration: underline; display: block; margin-bottom: 10px; font-weight: 500; font-size: 16px; word-break: break-all; }
@@ -34,8 +34,11 @@
 
         /* 하단 푸터 및 알림창 */
         .footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
-        .alert { color: #c0392b; font-weight: bold; background-color: #fadbd8; padding: 10px; border-radius: 5px; display: inline-block; margin-top: 10px; font-size: 0.9em; word-break: keep-all;}
         
+        /* [중요] 보안 경고 및 알림 스타일 */
+        .alert-box { background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 15px; border-radius: 5px; margin-top: 20px; text-align: left; font-size: 0.9em; line-height: 1.6; }
+        .alert-title { font-weight: bold; display: block; margin-bottom: 5px; color: #c0392b; }
+
         /* 가운데 정렬용 클래스 */
         .text-center { text-align: center; }
 
@@ -43,20 +46,13 @@
         /* ★ 모바일 최적화 (화면 폭 600px 이하일 때) ★ */
         /* ========================================= */
         @media screen and (max-width: 600px) {
-            body { padding: 10px; } /* 전체 여백 줄임 */
-            .container { padding: 20px 15px; } /* 박스 안쪽 여백 줄임 */
-            
-            h1 { font-size: 22px; } /* 제목 크기 약간 축소 */
+            body { padding: 10px; }
+            .container { padding: 20px 15px; }
+            h1 { font-size: 22px; }
             h3 { font-size: 18px; margin-top: 30px; }
-            
-            /* 표 최적화 */
-            .my-table { width: 100%; font-size: 13px; } /* 표 꽉 차게, 글씨 작게 */
-            .my-table th, .my-table td { padding: 8px 4px; } /* 셀 안쪽 여백 줄임 */
-            
-            /* 다운로드 버튼 꽉 차게 */
+            .my-table { width: 100%; font-size: 13px; }
+            .my-table th, .my-table td { padding: 8px 4px; }
             .btn { width: 100%; display: block; text-align: center; font-size: 14px; }
-            
-            /* 창체일지 링크 글씨 조정 */
             .doc-link { font-size: 14px; }
         }
     </style>
@@ -103,9 +99,14 @@
         <div class="text-center">
             <p style="font-size: 0.95em;">학생부 및 봉사활동 기록을<br>불러오는 엑셀 파일입니다.</p>
             
-            <a href="2026학년도 담임배포용_창의체험부_260219.xlsm" class="btn" download>📥 담임용 프로그램 다운로드 (Click)</a>
-            <br><br>
-            <div class="alert">※ 실행 시 상단의 [편집 사용] 및 [콘텐츠 사용] 버튼을 반드시 눌러주세요.</div>
+            <a href="2026학년도 담임배포용_창의체험부_260216.xlsm" class="btn" download>📥 담임용 프로그램 다운로드 (Click)</a>
+            
+            <div class="alert-box">
+                <span class="alert-title">⚠️ 실행이 차단될 경우 (필독)</span>
+                1. 다운로드한 파일 위에서 <b>[마우스 우클릭]</b><br>
+                2. <b>[속성]</b> 클릭 → 하단 <b>[차단 해제]</b> 체크 후 확인<br>
+                3. 파일 실행 후 상단 <b>[콘텐츠 사용]</b> 버튼 클릭
+            </div>
         </div>
 
         <div class="footer">
@@ -115,4 +116,3 @@
 
 </body>
 </html>
-
