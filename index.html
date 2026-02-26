@@ -5,119 +5,324 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>창의체험부 홈페이지</title>
     <style>
-        /* [공통 스타일] PC 기준 */
-        body { font-family: 'Malgun Gothic', dotum, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background-color: #fff; border: 1px solid #ccc; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 15px; margin-top: 0; text-align: center; word-break: keep-all; }
-
-        /* 섹션 제목 스타일 */
-        h3 { color: #2980b9; margin-top: 40px; border-left: 5px solid #2980b9; padding-left: 10px; }
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
-        p { line-height: 1.6; color: #555; word-break: keep-all; }
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background: linear-gradient(135deg, #f6f8fc, #e9f0f9); 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            justify-content: center; 
+            color: #333;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
         
-        /* 링크 텍스트 스타일 */
-        .doc-link { color: #2980b9; text-decoration: underline; display: block; margin-bottom: 10px; font-weight: 500; font-size: 16px; word-break: break-all; }
-        .doc-link:hover { color: #1a5276; }
+        .container { max-width: 900px; width: 100%; }
         
-        /* 표 스타일 */
-        .my-table { width: 90%; border-collapse: collapse; font-family: sans-serif; font-size: 15px; border: 1px solid #ddd; margin: 0 auto; }
-        .my-table th { background-color: #f1f3f4; padding: 12px; border: 1px solid #ddd; text-align: center; width: 35%; font-weight: bold; color: #333; }
-        .my-table td { padding: 12px; border: 1px solid #ddd; text-align: center; vertical-align: middle; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-size: 34px; color: #1a237e; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; }
+        .header p { color: #5c6bc0; font-size: 17px; margin: 0; font-weight: 500; letter-spacing: -0.3px; }
         
-        /* 표 안의 이동 버튼 (파란색) */
-        .my-btn { display: inline-block; background-color: #1a73e8; color: white !important; padding: 6px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 13px; white-space: nowrap; }
-        .my-btn:hover { background-color: #1557b0; }
-
-        /* 다운로드 버튼 스타일 */
-        .btn { display: inline-block; background-color: #27ae60; color: white; padding: 15px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; transition: background 0.3s; box-sizing: border-box; }
-        .btn:hover { background-color: #219150; }
-
-        /* 하단 푸터 및 알림창 */
-        .footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
         
-        /* [중요] 보안 경고 및 알림 스타일 */
-        .alert-box { background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 15px; border-radius: 5px; margin-top: 20px; text-align: left; font-size: 0.9em; line-height: 1.6; }
-        .alert-title { font-weight: bold; display: block; margin-bottom: 5px; color: #c0392b; }
+        .card { 
+            background: #ffffff; 
+            border-radius: 20px; 
+            padding: 30px; 
+            box-shadow: 0 10px 30px -5px rgba(26, 35, 126, 0.08); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        
+        .card:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 35px -5px rgba(26, 35, 126, 0.12); 
+        }
+        
+        .card-title { 
+            font-size: 22px; 
+            font-weight: 700; 
+            color: #283593; 
+            margin-top: 0; 
+            margin-bottom: 25px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        
+        .link-btn { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #ffffff; 
+            padding: 20px 24px; 
+            border-radius: 14px; 
+            text-decoration: none; 
+            color: #333; 
+            margin-bottom: 14px; 
+            border: 1px solid #e8eaf6; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.25s ease; 
+        }
+        
+        .link-btn:hover { 
+            background-color: #fcfcfd; 
+            border-color: #c5cae9; 
+            box-shadow: 0 6px 15px rgba(39, 44, 169, 0.06); 
+            transform: scale(1.01);
+        }
+        
+        .link-text { display: flex; flex-direction: column; }
+        .link-title { font-weight: 700; font-size: 18px; color: #1a237e; }
+        .link-desc { font-size: 15px; color: #7986cb; font-weight: 400; margin-top: 6px; word-break: keep-all; }
+        
+        .arrow { 
+            color: #3f51b5; 
+            font-weight: bold; 
+            font-size: 20px;
+            transition: transform 0.3s ease; 
+        }
+        .link-btn:hover .arrow { transform: translateX(5px); }
 
-        /* 가운데 정렬용 클래스 */
-        .text-center { text-align: center; }
+        .divider {
+            height: 1px;
+            background-color: #e8eaf6;
+            margin: 28px 0;
+        }
+        
+        .download-btn { 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #3f51b5, #283593); 
+            color: white; 
+            padding: 20px; 
+            border-radius: 14px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 18px; 
+            transition: all 0.3s ease; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 15px rgba(63, 81, 181, 0.3);
+            text-align: center;
+            word-break: keep-all;
+        }
+        .download-btn:hover { 
+            background: linear-gradient(135deg, #303f9f, #1a237e); 
+            box-shadow: 0 6px 20px rgba(63, 81, 181, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .alert-box { 
+            background-color: #fff8e1; 
+            border-left: 4px solid #ffb300; 
+            color: #5d4037; 
+            padding: 18px 20px; 
+            border-radius: 0 12px 12px 0; 
+            font-size: 15px; 
+            line-height: 1.6; 
+            margin-bottom: 15px;
+        }
+        .alert-title { font-weight: 700; color: #e65100; display: block; margin-bottom: 8px; font-size: 16px; }
+        
+        .footer { text-align: right; margin-top: 40px; font-size: 14px; color: #9fa8da; line-height: 1.5; font-weight: 500; }
+        
+        #auth-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        #auth-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
 
-        /* ========================================= */
-        /* ★ 모바일 최적화 (화면 폭 600px 이하일 때) ★ */
-        /* ========================================= */
-        @media screen and (max-width: 600px) {
-            body { padding: 10px; }
-            .container { padding: 20px 15px; }
-            h1 { font-size: 22px; }
-            h3 { font-size: 18px; margin-top: 30px; }
-            .my-table { width: 100%; font-size: 13px; }
-            .my-table th, .my-table td { padding: 8px 4px; }
-            .btn { width: 100%; display: block; text-align: center; font-size: 14px; }
-            .doc-link { font-size: 14px; }
+        #auth-box h2 {
+            margin-top: 0;
+            font-size: 26px;
+            color: #1a237e;
+        }
+
+        #pwd-input {
+            width: 100%;
+            padding: 14px;
+            margin: 18px 0;
+            border: 2px solid #e8eaf6;
+            border-radius: 8px;
+            font-size: 18px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #pwd-input:focus {
+            border-color: #3f51b5;
+        }
+
+        #pwd-btn {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        #pwd-btn:hover {
+            background: #283593;
+        }
+
+        #error-msg {
+            color: #d32f2f;
+            font-size: 15px;
+            margin-top: 12px;
+            display: none;
+        }
+
+        #main-content {
+            display: none;
+            max-width: 900px; 
+            width: 100%; 
+        }
+        
+        @media (max-width: 992px) {
+            .grid-container { 
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            body { padding: 20px 15px; }
+            .card { padding: 25px 20px; }
+            .header h1 { font-size: 28px; }
+            .download-btn { font-size: 16px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🏫 창의체험부</h1>
-        
-        <h3>1. 창체 일지</h3>
-        <div class="text-center">
-            <a href="https://docs.google.com/spreadsheets/d/1nIjISUHFomLyJBAGq2AVoOtgM7OI88KLUUl92H9Ljx8/edit?usp=sharing" target="_blank" class="doc-link">📄 2026학년도 창체 일지_260303</a>
-        </div>
-        <br>
-
-        <h3>2. 학생부, 봉사활동 입력 주소</h3>
-        
-        <table class="my-table">
-            <thead>
-                <tr>
-                    <th>구분</th>
-                    <th>바로가기</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="font-weight:bold;">학생부<br><span style="font-size:0.9em; font-weight:normal; color:#666;">(자율/진로/개세특)</span></td>
-                    <td>
-                        <a href="https://docs.google.com/spreadsheets/d/1QdIaF3XcIkSV8YJzSQ7fy3mDtIor_ZLKbwvIvohyubI/edit?usp=sharing" target="_blank" class="my-btn">이동 🔗</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="font-weight:bold;">봉사활동</td>
-                    <td>
-                        <a href="https://docs.google.com/spreadsheets/d/1xx_OssurPYei-pNRaXlBbVwsl7pvUPPbb8Fk9wcyyss/edit?usp=sharing" target="_blank" class="my-btn">이동 🔗</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="text-align: right; font-size: 0.85em; color: #888; margin-top: 8px; width: 100%;">* 2학기 주소는 8월 중 업데이트됩니다.</p>
-        <br>
-
-        <h3>3. 담임용 프로그램 다운로드</h3>
-        <div class="text-center">
-            <p style="font-size: 0.95em;">학생부 및 봉사활동 기록을<br>불러오는 엑셀 파일입니다.</p>
-            
-            <a href="2026학년도 담임배포용_창의체험부_260226.zip" class="btn" download>📥 담임용 프로그램 다운로드 (Click)</a>
-            
-            <div class="alert-box">
-                <span class="alert-title">⚠️ 실행이 차단될 경우 (필독)</span>
-                1. 다운로드한 파일 위에서 <b>[마우스 우클릭]</b><br>
-                2. <b>[속성]</b> 클릭 → 하단 <b>[차단 해제]</b> 체크 후 확인<br>
-                3. 파일 실행 후 상단 <b>[콘텐츠 사용]</b> 버튼 클릭
-            </div>
-        </div>
-
-        <div class="footer">
-            © 2026 경문고등학교 창의체험부<br>관리자: 장호진 선생님
+    <div id="auth-screen">
+        <div id="auth-box">
+            <h2>교직원 전용 페이지</h2>
+            <p style="color: #666; font-size: 16px; margin-bottom: 20px;">접근 암호를 입력해 주세요.</p>
+            <input type="password" id="pwd-input" placeholder="비밀번호 입력" onkeypress="if(event.keyCode==13) checkPassword()">
+            <button id="pwd-btn" onclick="checkPassword()">확인</button>
+            <div id="error-msg">비밀번호가 일치하지 않습니다.</div>
         </div>
     </div>
 
+    <div id="main-content">
+        <div class="header">
+            <h1>🏫 경문고등학교</h1>
+            <p>창의체험부 홈페이지</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <div class="card">
+                <h3 class="card-title">📝 자료</h3>
+                <a href="https://docs.google.com/spreadsheets/d/1nIjISUHFomLyJBAGq2AVoOtgM7OI88KLUUl92H9Ljx8/edit?usp=sharing" target="_blank" class="link-btn">
+                    <div class="link-text">
+                        <span class="link-title">창체일지 (~2026.03.04.)</span>
+                        <span class="link-desc">온라인 구글 스프레드시트 바로가기</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+                <a href="#" target="_blank" class="link-btn">
+                    <div class="link-text">
+                        <span class="link-title">정규동아리 운영현황</span>
+                        <span class="link-desc">업데이트 예정</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">📊 학생부 및 봉사활동</h3>
+                <a href="https://docs.google.com/spreadsheets/d/1QdIaF3XcIkSV8YJzSQ7fy3mDtIor_ZLKbwvIvohyubI/edit?usp=sharing" target="_blank" class="link-btn" style="margin-bottom: 12px;">
+                    <div class="link-text">
+                        <span class="link-title">학생부 기록</span>
+                        <span class="link-desc">자율 / 진로 / 개세특</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1xx_OssurPYei-pNRaXlBbVwsl7pvUPPbb8Fk9wcyyss/edit?usp=sharing" target="_blank" class="link-btn">
+                    <div class="link-text">
+                        <span class="link-title">봉사활동 기록</span>
+                        <span class="link-desc">학급 / 교과 / 동아리 / 부서 / 봉사</span>
+                    </div>
+                    <span class="arrow">→</span>
+                </a>
+                <div style="text-align: right; font-size: 14px; color: #7986cb; margin-top: auto; padding-top: 5px; font-weight: 500;">
+                    * 2학기 주소는 8월 중 업데이트됩니다.
+                </div>
+
+                <div class="divider"></div>
+
+                <a href="2026학년도 담임배포용_창의체험부_260226.zip" class="download-btn">📥 엑셀 프로그램 다운로드</a>
+                
+                <div class="alert-box">
+                    <span class="alert-title">⚠️ 엑셀 매크로 차단 시</span>
+                    1. 파일 위에서 <b>[마우스 우클릭]</b><br>
+                    2. <b>[속성]</b> → 하단 <b>[차단 해제]</b> 체크<br>
+                    3. 실행 후 상단 <b>[콘텐츠 사용]</b> 클릭
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            © 2026 경문고등학교 창의체험부
+        </div>
+    </div>
+
+    <script>
+        const secretCode = "11149";
+
+        if(sessionStorage.getItem("authenticated") === "true") {
+            document.getElementById("auth-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        } else {
+            document.getElementById("pwd-input").focus();
+        }
+
+        function checkPassword() {
+            const input = document.getElementById("pwd-input").value;
+            const errorMsg = document.getElementById("error-msg");
+            
+            if(input === secretCode) {
+                sessionStorage.setItem("authenticated", "true");
+                document.getElementById("auth-screen").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            } else {
+                errorMsg.style.display = "block";
+                document.getElementById("pwd-input").value = "";
+                document.getElementById("pwd-input").focus();
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
