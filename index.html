@@ -88,7 +88,7 @@
 
         #main-content {
             display: none;
-            max-width: 900px; 
+            max-width: 600px; /* 카드가 하나라 넓이 조정 */
             width: 100%; 
         }
 
@@ -96,22 +96,14 @@
         .header h1 { font-size: 30px; color: #1a237e; margin-bottom: 10px; font-weight: 800; letter-spacing: -0.5px; }
         .header p { color: #5c6bc0; font-size: 15px; margin: 0; font-weight: 500; letter-spacing: -0.3px; }
         
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 25px;
-            margin-bottom: 25px;
-        }
-        
         .card { 
             background: #ffffff; 
             border-radius: 20px; 
-            padding: 30px; 
+            padding: 40px; 
             box-shadow: 0 10px 30px -5px rgba(26, 35, 126, 0.08); 
             transition: transform 0.3s ease, box-shadow 0.3s ease; 
             display: flex;
             flex-direction: column;
-            height: 100%;
             box-sizing: border-box;
         }
         
@@ -121,14 +113,14 @@
         }
         
         .card-title { 
-            font-size: 18px; 
+            font-size: 20px; 
             font-weight: 700; 
             color: #283593; 
             margin-top: 0; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             display: flex; 
             align-items: center; 
-            gap: 8px; 
+            gap: 10px; 
         }
         
         .link-btn { 
@@ -136,11 +128,11 @@
             justify-content: space-between; 
             align-items: center; 
             background-color: #ffffff; 
-            padding: 18px 20px; 
+            padding: 20px 25px; 
             border-radius: 14px; 
             text-decoration: none; 
             color: #333; 
-            margin-bottom: 12px; 
+            margin-bottom: 15px; 
             border: 1px solid #e8eaf6; 
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
             transition: all 0.25s ease; 
@@ -150,17 +142,17 @@
             background-color: #fcfcfd; 
             border-color: #c5cae9; 
             box-shadow: 0 6px 15px rgba(39, 44, 169, 0.06); 
-            transform: scale(1.01);
+            transform: scale(1.02);
         }
         
         .link-text { display: flex; flex-direction: column; }
-        .link-title { font-weight: 700; font-size: 16px; color: #1a237e; }
-        .link-desc { font-size: 13px; color: #7986cb; font-weight: 400; margin-top: 5px; word-break: keep-all; }
+        .link-title { font-weight: 700; font-size: 17px; color: #1a237e; }
+        .link-desc { font-size: 14px; color: #7986cb; font-weight: 400; margin-top: 6px; word-break: keep-all; }
         
         .arrow { 
             color: #3f51b5; 
             font-weight: bold; 
-            font-size: 18px;
+            font-size: 20px;
             transition: transform 0.3s ease; 
         }
         .link-btn:hover .arrow { transform: translateX(5px); }
@@ -168,7 +160,7 @@
         .divider {
             height: 1px;
             background-color: #e8eaf6;
-            margin: 25px 0;
+            margin: 30px 0;
         }
         
         .download-btn { 
@@ -177,13 +169,13 @@
             align-items: center;
             background: linear-gradient(135deg, #3f51b5, #283593); 
             color: white; 
-            padding: 18px; 
+            padding: 20px; 
             border-radius: 14px; 
             text-decoration: none; 
             font-weight: 700; 
-            font-size: 16px; 
+            font-size: 17px; 
             transition: all 0.3s ease; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             box-shadow: 0 4px 15px rgba(63, 81, 181, 0.3);
             text-align: center;
             word-break: keep-all;
@@ -198,82 +190,22 @@
             background-color: #fff8e1; 
             border-left: 4px solid #ffb300; 
             color: #5d4037; 
-            padding: 16px 15px; 
+            padding: 18px 20px; 
             border-radius: 0 12px 12px 0; 
-            font-size: 13.5px; 
-            line-height: 1.5; 
-            margin-bottom: 15px;
+            font-size: 14.5px; 
+            line-height: 1.6; 
         }
-        .alert-title { font-weight: 700; color: #e65100; display: block; margin-bottom: 6px; font-size: 14.5px; }
+        .alert-title { font-weight: 700; color: #e65100; display: block; margin-bottom: 8px; font-size: 15.5px; }
         
-        .footer { text-align: right; margin-top: 40px; font-size: 13px; color: #9fa8da; line-height: 1.5; font-weight: 500; }
+        .footer { text-align: center; margin-top: 40px; font-size: 14px; color: #9fa8da; line-height: 1.5; font-weight: 500; }
         
-        #custom-modal {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-
-        #custom-modal-box {
-            background: white;
-            padding: 35px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            text-align: center;
-            max-width: 300px;
-            width: 90%;
-            animation: popIn 0.3s ease;
-        }
-
-        #custom-modal-box h3 {
-            margin-top: 0;
-            color: #1a237e;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        #custom-modal-box p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        #custom-modal-btn {
-            background: #3f51b5;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        #custom-modal-btn:hover {
-            background: #283593;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.9); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        @media (max-width: 992px) {
-            .grid-container { 
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+        @media (max-width: 600px) {
             body { padding: 20px 15px; }
-            .card { padding: 25px 20px; }
-            .header h1 { font-size: 24px; }
-            .download-btn { font-size: 15px; }
+            .card { padding: 30px 20px; }
+            .header h1 { font-size: 26px; }
+            .download-btn { font-size: 16px; padding: 18px; }
+            .link-title { font-size: 16px; }
+            .link-btn { padding: 18px 20px; }
         }
     </style>
 </head>
@@ -289,69 +221,41 @@
         </div>
     </div>
 
-    <div id="custom-modal">
-        <div id="custom-modal-box">
-            <h3>안내</h3>
-            <p>아직 준비가 안 됐어요.<br>조금만 기다려주세요.</p>
-            <button id="custom-modal-btn" onclick="closeModal()">확인</button>
-        </div>
-    </div>
-
     <div id="main-content">
         <div class="header">
             <h1>🏫 경문고등학교</h1>
             <p>창의체험부 홈페이지</p>
         </div>
 
-        <div class="grid-container">
+        <div class="card">
+            <h3 class="card-title">📊 학생부 및 봉사활동</h3>
             
-            <div class="card">
-                <h3 class="card-title">📝 자료</h3>
-                <a href="https://docs.google.com/spreadsheets/d/1nIjISUHFomLyJBAGq2AVoOtgM7OI88KLUUl92H9Ljx8/edit?usp=sharing" target="_blank" class="link-btn">
-                    <div class="link-text">
-                        <span class="link-title">창체일지 (~2026.03.04.)</span>
-                        <span class="link-desc">온라인 구글 스프레드시트 바로가기</span>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-                <a href="#" onclick="showModal(event)" class="link-btn">
-                    <div class="link-text">
-                        <span class="link-title">정규동아리 운영현황</span>
-                        <span class="link-desc">업데이트 예정</span>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">📊 학생부 및 봉사활동</h3>
-                <a href="https://docs.google.com/spreadsheets/d/1QdIaF3XcIkSV8YJzSQ7fy3mDtIor_ZLKbwvIvohyubI/edit?usp=sharing" target="_blank" class="link-btn" style="margin-bottom: 12px;">
-                    <div class="link-text">
-                        <span class="link-title">학생부 기록</span>
-                        <span class="link-desc">자율 / 진로 / 개세특</span>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1xx_OssurPYei-pNRaXlBbVwsl7pvUPPbb8Fk9wcyyss/edit?usp=sharing" target="_blank" class="link-btn">
-                    <div class="link-text">
-                        <span class="link-title">봉사활동 기록</span>
-                        <span class="link-desc">학급 / 교과 / 동아리 / 부서 / 봉사</span>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-
-                <div class="divider"></div>
-
-                <a href="2026학년도 학생부&봉사 기록_260302.zip" class="download-btn">📥 엑셀 프로그램 다운로드(담임용)</a>
-                
-                <div class="alert-box">
-                    <span class="alert-title">⚠️ 엑셀 매크로 차단 시</span>
-                    1. 파일 위에서 <b>[마우스 우클릭]</b><br>
-                    2. <b>[속성]</b> → 하단 <b>[차단 해제]</b> 체크<br>
-                    3. 실행 후 상단 <b>[콘텐츠 사용]</b> 클릭
+            <a href="https://docs.google.com/spreadsheets/d/1QdIaF3XcIkSV8YJzSQ7fy3mDtIor_ZLKbwvIvohyubI/edit?usp=sharing" target="_blank" class="link-btn">
+                <div class="link-text">
+                    <span class="link-title">학생부 기록</span>
+                    <span class="link-desc">자율 / 진로 / 개세특</span>
                 </div>
-            </div>
+                <span class="arrow">→</span>
+            </a>
+            
+            <a href="https://docs.google.com/spreadsheets/d/1xx_OssurPYei-pNRaXlBbVwsl7pvUPPbb8Fk9wcyyss/edit?usp=sharing" target="_blank" class="link-btn">
+                <div class="link-text">
+                    <span class="link-title">봉사활동 기록</span>
+                    <span class="link-desc">학급 / 교과 / 동아리 / 부서 / 봉사</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
 
+            <div class="divider"></div>
+
+            <a href="2026학년도 학생부&봉사 기록_260302.zip" class="download-btn">📥 엑셀 프로그램 다운로드(담임용)</a>
+            
+            <div class="alert-box">
+                <span class="alert-title">⚠️ 엑셀 매크로 차단 시</span>
+                1. 파일 위에서 <b>[마우스 우클릭]</b><br>
+                2. <b>[속성]</b> → 하단 <b>[차단 해제]</b> 체크<br>
+                3. 실행 후 상단 <b>[콘텐츠 사용]</b> 클릭
+            </div>
         </div>
 
         <div class="footer">
@@ -383,18 +287,6 @@
                 document.getElementById("pwd-input").focus();
             }
         }
-
-        function showModal(e) {
-            e.preventDefault();
-            document.getElementById("custom-modal").style.display = "flex";
-        }
-
-        function closeModal() {
-            document.getElementById("custom-modal").style.display = "none";
-        }
     </script>
 </body>
 </html>
-
-
-
