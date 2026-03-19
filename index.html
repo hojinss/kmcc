@@ -123,7 +123,7 @@
             gap: 10px; 
         }
         
-        /* 구글 시트 링크용 버튼 스타일 */
+        /* 기본 버튼 스타일 */
         .link-btn { 
             display: flex; 
             justify-content: space-between; 
@@ -158,70 +158,28 @@
         }
         .link-btn:hover .arrow { transform: translateX(5px); }
 
-        /* 파일 다운로드 전용 박스 스타일 */
-        .file-download-box {
-            display: flex;
-            align-items: center;
-            background-color: #f8f9fc;
-            border: 2px dashed #9fa8da;
-            padding: 16px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #333;
-            margin-bottom: 15px;
-            transition: all 0.2s ease;
-        }
-        
-        .file-download-box:hover {
-            background-color: #eef1fb;
-            border-color: #5c6bc0;
-            box-shadow: 0 4px 12px rgba(92, 107, 192, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        .file-icon {
-            font-size: 32px;
-            margin-right: 18px;
-        }
-        
-        .file-info {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        
-        .file-name {
-            font-weight: 700;
-            font-size: 16px;
-            color: #283593;
-            margin-bottom: 4px;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-        
-        .file-sub {
-            font-size: 13.5px;
-            color: #7986cb;
-        }
-        
-        .download-icon {
-            font-size: 20px;
-            background: #ffffff;
-            color: #3f51b5;
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border: 1px solid #e8eaf6;
-            transition: background 0.3s ease;
+        /* 새로 추가된 짙은 색 양식 다운로드 버튼 */
+        .link-btn.dark-theme {
+            background-color: #283593; /* 짙은 남색 */
+            border: 1px solid #1a237e;
+            box-shadow: 0 4px 12px rgba(40, 53, 147, 0.2);
         }
 
-        .file-download-box:hover .download-icon {
-            background: #3f51b5;
-            color: #ffffff;
+        .link-btn.dark-theme:hover {
+            background-color: #1a237e;
+            box-shadow: 0 6px 16px rgba(26, 35, 126, 0.3);
+        }
+
+        .link-btn.dark-theme .link-title {
+            color: #ffffff; /* 흰색 글씨 */
+        }
+
+        .link-btn.dark-theme .link-desc {
+            color: #c5cae9; /* 연한 파스텔 블루 (설명 가독성 확보) */
+        }
+
+        .link-btn.dark-theme .arrow {
+            color: #ffffff; /* 아이콘 흰색 */
         }
 
         .divider {
@@ -281,7 +239,6 @@
             .download-btn { font-size: 16px; padding: 18px; }
             .link-title { font-size: 16px; }
             .link-btn { padding: 18px 20px; }
-            .file-name { font-size: 15px; }
         }
     </style>
 </head>
@@ -322,13 +279,12 @@
                 <span class="arrow">→</span>
             </a>
 
-            <a href="봉사활동 계획서_양식_260316.hwp" download class="file-download-box">
-                <div class="file-icon">📄</div>
-                <div class="file-info">
-                    <span class="file-name">봉사활동 계획서 양식.hwp</span>
-                    <span class="file-sub">30분 이상 단일 활동 부여 시 작성 필수</span>
+            <a href="봉사활동 계획서_양식_260316.hwp" download class="link-btn dark-theme">
+                <div class="link-text">
+                    <span class="link-title">📄 봉사활동 계획서 양식</span>
+                    <span class="link-desc">30분 이상 단일 활동 부여 시 작성 필수</span>
                 </div>
-                <div class="download-icon">📥</div>
+                <span class="arrow">📥</span>
             </a>
 
             <div class="divider"></div>
