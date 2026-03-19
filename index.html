@@ -88,7 +88,7 @@
 
         #main-content {
             display: none;
-            max-width: 600px; /* 카드가 하나라 넓이 조정 */
+            max-width: 600px; 
             width: 100%; 
         }
 
@@ -175,7 +175,7 @@
             font-weight: 700; 
             font-size: 17px; 
             transition: all 0.3s ease; 
-            margin-bottom: 25px; 
+            margin-bottom: 8px; /* 날짜 텍스트와 간격을 위해 조절 */
             box-shadow: 0 4px 15px rgba(63, 81, 181, 0.3);
             text-align: center;
             word-break: keep-all;
@@ -184,6 +184,14 @@
             background: linear-gradient(135deg, #303f9f, #1a237e); 
             box-shadow: 0 6px 20px rgba(63, 81, 181, 0.4);
             transform: translateY(-2px);
+        }
+
+        .update-info {
+            text-align: center;
+            font-size: 13.5px;
+            color: #5c6bc0;
+            margin-bottom: 25px;
+            font-weight: 500;
         }
         
         .alert-box { 
@@ -246,9 +254,18 @@
                 <span class="arrow">→</span>
             </a>
 
+            <a href="봉사활동 계획서_양식_260316.hwp" download class="link-btn">
+                <div class="link-text">
+                    <span class="link-title">📄 봉사활동 계획서 양식</span>
+                    <span class="link-desc">30분 이상 단일 활동 부여 시 작성 필수</span>
+                </div>
+                <span class="arrow">📥</span>
+            </a>
+
             <div class="divider"></div>
 
-            <a href="2026학년도 학생부&봉사 기록_260317.zip" class="download-btn">📥 엑셀 프로그램 다운로드(담임용)</a>
+            <a href="2026학년도 학생부&봉사 기록_260317.zip" download class="download-btn">📥 엑셀 프로그램 다운로드(담임용)</a>
+            <div class="update-info">🔄 마지막 업데이트: 2026년 03월 17일</div>
             
             <div class="alert-box">
                 <span class="alert-title">⚠️ 엑셀 매크로 차단 시</span>
@@ -290,4 +307,3 @@
     </script>
 </body>
 </html>
-
