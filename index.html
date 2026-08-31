@@ -123,7 +123,6 @@
             gap: 10px; 
         }
         
-        /* 기본 버튼 스타일 */
         .link-btn { 
             display: flex; 
             justify-content: space-between; 
@@ -158,9 +157,8 @@
         }
         .link-btn:hover .arrow { transform: translateX(5px); }
 
-        /* 새로 추가된 짙은 색 양식 다운로드 버튼 */
         .link-btn.dark-theme {
-            background-color: #283593; /* 짙은 남색 */
+            background-color: #283593;
             border: 1px solid #1a237e;
             box-shadow: 0 4px 12px rgba(40, 53, 147, 0.2);
         }
@@ -171,15 +169,15 @@
         }
 
         .link-btn.dark-theme .link-title {
-            color: #ffffff; /* 흰색 글씨 */
+            color: #ffffff;
         }
 
         .link-btn.dark-theme .link-desc {
-            color: #c5cae9; /* 연한 파스텔 블루 (설명 가독성 확보) */
+            color: #c5cae9;
         }
 
         .link-btn.dark-theme .arrow {
-            color: #ffffff; /* 아이콘 흰색 */
+            color: #ffffff;
         }
 
         .divider {
@@ -188,6 +186,14 @@
             margin: 30px 0;
         }
         
+        .download-group {
+            margin-bottom: 20px;
+        }
+
+        .download-group:last-of-type {
+            margin-bottom: 30px;
+        }
+
         .download-btn { 
             display: flex; 
             justify-content: center;
@@ -215,7 +221,6 @@
             text-align: center;
             font-size: 13.5px;
             color: #5c6bc0;
-            margin-bottom: 25px;
             font-weight: 500;
         }
         
@@ -289,8 +294,15 @@
 
             <div class="divider"></div>
 
-            <a href="2026 창체기록(ver.0828).zip" download class="download-btn">📥 엑셀 프로그램 다운로드(담임용)</a>
-            <div class="update-info">🔄 마지막 업데이트: 2026년 08월 28일</div>
+            <div class="download-group">
+                <a href="2026 자율기록(ver.0831).zip" download class="download-btn">📥 자율기록 엑셀 다운로드(담임용)</a>
+                <div class="update-info">🔄 마지막 업데이트: 2026년 8월 31일</div>
+            </div>
+
+            <div class="download-group">
+                <a href="2026 봉사기록(ver.0831).zip" download class="download-btn">📥 봉사기록 엑셀 다운로드(담임용)</a>
+                <div class="update-info">🔄 마지막 업데이트: 2026년 8월 31일</div>
+            </div>
             
             <div class="alert-box">
                 <span class="alert-title">⚠️ 엑셀 매크로 차단 시</span>
